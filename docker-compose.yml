@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  note-service:
+      build: 
+         context: .
+         dockerfile: Dockerfile
+      container_name: note-service
+      ports:
+        - '5001:5001'
+      depends_on:
+        - mongodb
+  mongodb:
+      image: mongo:latest
+      container_name: 'mongo'
+      ports:
+         - '27017:27017'
+         
